@@ -27,7 +27,7 @@ export class TweetService {
 
   feed(userId: string) {
     return this.tweetRepository.createQueryBuilder('tweet')
-    .innerJoin('tweet.author', 'author')
+    .innerJoinAndSelect('tweet.author', 'author')
     .innerJoin('author.followers', 'followers')
     .where('followers.userId = :userId', { userId })
     .getMany();
