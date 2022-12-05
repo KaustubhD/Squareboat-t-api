@@ -7,6 +7,12 @@ export class User {
   public userId: string;
 
   @Column({
+    length: 30,
+    default: 'User'
+  })
+  public displayName: string;
+
+  @Column({
     unique: true,
     length: 30,
   })
