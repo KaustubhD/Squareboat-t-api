@@ -1,4 +1,6 @@
-const apiUrl = 'http://localhost:3000';
+import { environments } from "src/environments";
+
+const apiUrl = environments.API_URL;
 
 export const URLS = {
   REGISTER_USER: apiUrl + "/users/",
