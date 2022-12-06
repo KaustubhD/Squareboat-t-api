@@ -3,4 +3,5 @@ export class RegisterUserDto {
   public email!: string;
   public password!: string;
   public confirmpwd!: string;
+  public displayName!: string;
 }

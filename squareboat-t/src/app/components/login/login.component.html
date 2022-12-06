@@ -1,0 +1,29 @@
+<div class="login d-flex justify-content-center flex-column col-lg-5 mx-auto">
+  <form *ngIf="!success" (ngSubmit)="authenticate()" class="was-validated" #frm=ngForm>
+
+      <h2>Login</h2>
+      <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Login Failed !</strong> Invalid User Details
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="group form-group">
+          <label for="username" class="form-label">Username or Handle</label>
+          <input type="text" class="form-control" name="username" id="username" [(ngModel)]="cred.userName" #user=ngModel required>
+      </div>
+      <div class="group form-group">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="pwd" id="password" [(ngModel)]="cred.password" #pass=ngModel minlength="1" required>
+      </div>
+
+      <div class="group form-group">
+          <input type="submit" class="btnn" value="Login" [disabled]="frm.invalid">
+      </div>
+      <p class="para">Don't have an account ? <a routerLink="/register">Create an account</a></p>
+  </form>
+
+  <div *ngIf="success" class="sucess  fade show" role="success">
+      <strong><h2>Login Success !</h2></strong>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.tweet {
+  border: 1px solid #888;
+  border-radius: 5px;
+  font-size: 15px;
+}
+.tweet img {
+  border-radius: 50%;
+}
+.tweet-author {
+  font-style: bold;
+  font-weight: bold;
+}
+.tweet-author-handle {
+  color: #777;
+}

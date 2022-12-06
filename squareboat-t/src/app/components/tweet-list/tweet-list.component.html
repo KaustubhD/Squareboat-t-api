@@ -1,0 +1,18 @@
+<div class="d-flex justify-contents-center flex-column mx-auto col-lg-4">
+  <h3>Tweets from people you're following</h3>
+  <div *ngFor="let tweet of tweets" class="tweet container p-1 m-1">
+    <div class="row row-cols-2">
+      <div class="col col-2">
+        <img class="img" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" width="100%">
+      </div>
+      <div class="col-10">
+        <div class="tweet-author-info">
+          <span class="tweet-author">{{tweet.author?.displayName}}</span>
+          <span class="tweet-author-handle ml-2">@{{tweet.author?.userName}}</span>
+        </div>
+        <div class="tweet-content">{{ tweet.content }}</div>
+      </div>
+    </div>
+  </div>
+  <h5 *ngIf="!(tweets?.length)">Looks like an empty feed. Try following some users</h5>
+</div>
