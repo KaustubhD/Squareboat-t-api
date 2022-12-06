@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 export const environments = {
   production: false,
