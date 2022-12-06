@@ -10,6 +10,12 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# env
+.env
+
+# DB
+*.sqlite
+
 # OS
 .DS_Store
 

@@ -1,8 +1,0 @@
-<div class="tweet-create p-3 d-flex justify-contents-center flex-column mx-auto col-lg-4">
-  <h3>Post your thoughts</h3>
-  <div class="characters">{{content.length}}/144 characters</div>
-  <textarea id="content" class="form-control mb-1" name="content" [(ngModel)]="content" #uid=ngModel maxlength="144"></textarea>
-  <div class="alert alert-success" role="alert" *ngIf="displaySuccessTweet">Tweet posted successfully
-  </div>  
-  <input [disabled]="content.length == 0" class="btn btn-primary" value="Post" (click)="postTweet()">
-</div>
