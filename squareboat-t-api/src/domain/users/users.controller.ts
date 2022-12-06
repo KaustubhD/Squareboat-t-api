@@ -43,4 +43,10 @@ export class UsersController {
   followUser(@Body() followDto: FollowDto) {
     return this.usersService.followUser(followDto);
   }
+
+
+  @Post('unfollow')
+  unfollowUser(@Body() followDto: FollowDto) {
+    return this.usersService.unfollowUser(followDto);
+  }
 }

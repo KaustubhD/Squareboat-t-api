@@ -23,7 +23,15 @@ export class UsersService {
   }
 
   async login(loginDto: LoginDto) {
-    const user = await this.userRepository.findOneBy({ userName: loginDto.userName });
+    const user = await this.userRepository.findOne(
+      {
+        relations: {
+          followers: true,
+          following: true,
+        },
+        where: { userName: loginDto.userName },
+      }
+    );
     const hashedPassword = SecurityUtils.hashPassword(loginDto.password);
 
     if (user && user.password == hashedPassword) {
@@ -76,6 +84,19 @@ export class UsersService {
     await this.userRepository.save(follower);
 
     return { message: "User followed" };
+  }
+
+  async unfollowUser(followDto: FollowDto) {
+    const follower = await this.findOne(followDto.followerId);
+    const followee = await this.findOne(followDto.followeeId);
+
+    if (Array.isArray(follower.following)) {
+      follower.following = follower.following.filter(user => user.userId != followee.userId);
+    }
+
+    await this.userRepository.save(follower);
+
+    return { message: "User unfollowed" };
   }
 
   removeSensitiveInfo(user: User): User {
